@@ -1,0 +1,48 @@
+{% extends 'docstore/master.html' %}
+
+{% block content %}
+<div class="container">
+<div class="columns">
+    <div class="column">
+        <div class="is-wide"> <section class="section"></section> </div>
+        <p class="title">So, You are a contributer, Huh?</p>
+        <p class="subtitle">..And not a spammer, Right?</p>
+    </div>
+
+    <!------right-side-form------>
+    <div class="column">
+<form action="" method="post"  id="choiceform">
+    {% csrf_token %}
+            <div class="field">
+                <label for="question" class="label has-text-white">Question</label>
+                <div class="control">
+                    <input type="text" class="input is-rounded" placeholder="Enter Question Title" name="question" required>
+                </div>
+            </div>
+            <div class="field">
+                <label for="choice" class="label has-text-white">Choice</label>
+                <div class="control">
+                    <input v-model="inputdata" @keyup.188="manipulate" style="width: 170px" type="text" class="input is-rounded" placeholder="Type a choice..">
+                    <a v-if="choice" v-for="ch in choice" class="button is-rounded is-warning" @click="removedata(ch)"> {: ch :} </a>
+                    <input type="hidden" name="choice" :value="maindata">
+                </div>
+            </div>
+            <div class="field">
+                <label for="answer" class="label has-text-white">Answer</label>
+                <div class="control select is-rounded">
+                    <select name="answer" style="width: 170px">
+                        <option v-for="ch in choice" :value="ch" > {: ch :} </option>
+                    </select>
+                </div>
+            </div>
+            <br/>
+            <button type="submit" class="button is-primary is-outlined is-medium is-inverted is-rounded">Save</button>
+</form>
+        
+    </div>
+</div>
+</div>
+{% load static %}
+<script src="{% static 'js/vue.js' %}"></script>
+<script src="{% static 'js/vishal.js' %}"></script>
+  {% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Let's Have a Quiz</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+</head>
+<body>
+
+<div class="hero is-primary is-bold is-fullheight">
+  <div class="hero-head">
+    <div class="container">
+    <div class="navbar">
+      <div class="navbar-brand">
+        <div class="navbar-item"><a href="{% url 'home' %}" class="title">Quizzer.</a></div>
+      </div>
+
+      <div class="navbar-end is-desktop">
+        <div class="navbar-item"><a href="{% url 'add' %}" class="button is-primary is-inverted is-outlined is-rounded">Contribute Question</a></div>
+      </div>
+    </div>
+    </div>  
+  </div>
+
+  <div class="hero-body">
+    {% block content %}
+    <div class="container">
+      <p class="title is-size-1">Play Quiz.</p>
+      <p class="subtitle is-size-4">Never Be Bored Again.</p>
+      <a href="{% url 'play' %}" class="button is-primary is-outlined has-text-white">Let's Go.</a>
+    {% endblock %}
+      <section class="section"></section>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
