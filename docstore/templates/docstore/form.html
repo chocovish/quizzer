@@ -23,7 +23,7 @@
                 <label for="choice" class="label has-text-white">Choice</label>
                 <div class="control">
                     <input v-model="inputdata" @keyup.188="manipulate" style="width: 170px" type="text" class="input is-rounded" placeholder="Type a choice..">
-                    <a v-if="choice" v-for="ch in choice" class="button is-rounded is-warning" @click="removedata(ch)"> {: ch :} </a>
+                    <span style="margin:2px;" v-if="choice" v-for="ch in choice" class="tag is-rounded is-info is-medium" > {: ch :} <i class="delete" @click="removedata(ch)"></i></span>
                     <input type="hidden" name="choice" :value="maindata">
                 </div>
             </div>
